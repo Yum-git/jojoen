@@ -26,6 +26,7 @@ SECRET_KEY = ')%r5utg(4b+9*1!97mqo+h_*-xec%_$_um&_=zx=n1^-_0iqte'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    # ゆーの環境の仕様上，下記IPを追加
     '192.168.99.100'
 ]
 
@@ -33,8 +34,12 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    # Local
     'Text_to_Music.apps.TextToMusicConfig',
 
+    # 3rd Party
+    'rest_framework',
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+# Setting permission
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
