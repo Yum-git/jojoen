@@ -1,6 +1,6 @@
 # from .model_all import *
 from . import model_3, model_4, model_7_1
-from . import model_music1, model_music2, model_music3, model_music4
+from . import model_music1, model_music2, model_music3, model_music4, model_music5
 
 class StartClass(object):
     def __init__(self, input):
@@ -14,14 +14,15 @@ class StartClass(object):
     
     def main_(self):
         # 2. 入力した文字列をローマ字に変換する
-        textConveter = model_music1.converter(self.input_object)
-        lastText = textConveter.convertText()
+        # textConveter = model_music1.converter(self.input_object)
+        # lastText = textConveter.convertText()
 
         # ポジネガ判定　後で実装
-        PosiNegaScore = 3
+        Judge = PosiNega(self.input_object)
+        PosiNegaScore, tangoNum = Judge.posiNegaJud()
 
         # 5. ローマ字を元にドレミに変換する
-        musicConveter = model_music2.musicalConverter(lastText)
+        musicConveter = model_music2.musicalConverter(PosiNegaScore)
         musicalScore = musicConveter.convertMusic
         
         # リズムをつくる
