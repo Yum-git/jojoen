@@ -19,6 +19,8 @@ class WordChange(object):
         
         wordcloud.fit_words(self.wordlist)
 
-        wordcloud.to_file('./sample.png')
+        wordcloud.to_file('../tmp/word.png')
+
+        return '../tmp/word.png'
 
                             
