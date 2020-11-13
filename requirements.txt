@@ -1,2 +1,5 @@
 django
 djangorestframework
+wordcloud
+tqdm
+janome

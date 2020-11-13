@@ -10,7 +10,8 @@ class WordChange(object):
     
     def Picture_create(self):
         wordcloud = WordCloud(
-            font_path="./HGRGM.TTC",
+            # フォント変えてどうにか
+            font_path="/app/Text_to_Music/api_class/ipaexg.ttf",
             regexp="[\w']+",
             background_color='white',
             colormap='jet',
