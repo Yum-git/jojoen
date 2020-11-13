@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     # ゆーの環境の仕様上，下記IPを追加
-    '192.168.99.100'
+    '192.168.99.100',
+    'localhost'
 ]
 
 
