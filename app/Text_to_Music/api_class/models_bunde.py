@@ -1,4 +1,5 @@
-from . import model_3, model_4, model_7_1, model_7_2
+# from .model_all import *
+from . import model_3, model_4, model_7_1
 from . import model_music1, model_music2, model_music3, model_music4
 
 class StartClass(object):
@@ -43,11 +44,12 @@ class StartClass(object):
         # 7. base64にしてjson形式に変換
         ## 7_1. base64に変換
         ### audiobinary
-        model_7_1_class = model_7_1.changebase64(self.audio_path)
-        self.audio_binary = model_7_1_class.change()
+        # model_7_1_class = model_7_1.changebase64(self.audio_path)
+        # self.audio_binary = model_7_1_class.change()
 
         ### picturebinary
-        model_7_1_class.__changepath__(self.picture_path)
+        model_7_1_class = model_7_1.changebase64(self.picture_path)
+        # model_7_1_class.__changepath__(self.picture_path)
         self.picture_binary = model_7_1_class.change()
 
         ## 7_2. base64をreturn
