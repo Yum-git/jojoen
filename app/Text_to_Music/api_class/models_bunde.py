@@ -1,4 +1,5 @@
-import model_3, model_4, model_7_1, model_7_2
+from . import model_3, model_4, model_7_1, model_7_2
+from . import model_music1, model_music2, model_music3, model_music4
 
 class StartClass(object):
     def __init__(self, input):
@@ -12,10 +13,24 @@ class StartClass(object):
     
     def main_(self):
         # 2. 入力した文字列をローマ字に変換する
+        textConveter = model_music1.converter(self.input_object)
+        lastText = textConveter.convertText()
+
+        # ポジネガ判定　後で実装
+        PosiNegaScore = 3
 
         # 5. ローマ字を元にドレミに変換する
+        musicConveter = model_music2.musicalConverter(lastText)
+        musicalScore = musicConveter.convertMusic
+        
+        # リズムをつくる
+        makeRhythm = model_music3.makeRhythm(PosiNegaScore, musicalScore)
+        makeRhythm.rhythmMake()
+        melody = makeRhythm.melodyMake()
 
         # 6. ドレミを音声に変換する
+        rec = model_music4.Recorder(PosiNegaScore, melody)
+        rec.save(self.audio_path)
 
         # 3. 入力した文字列を形態素解析で単語化
         model_3_class = model_3.ChangeWord(self.input_object)
