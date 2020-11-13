@@ -1,0 +1,2 @@
+# pycharm関連は除外
+*.pyc
