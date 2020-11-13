@@ -21,38 +21,38 @@ class makeRhythm(object):
         self.melody = []
         
     def rhythmMake(self):
-        #while True:
-        if self.PosiNegaScore >=0:
-            rand = random.randrange(5)
-            if rand == 0:
-                self.rhythm = self.rhythm + tmp_light_rhythm1
-            elif rand == 1:
-                self.rhythm = self.rhythm + tmp_light_rhythm2
-            elif rand == 2:
-                self.rhythm = self.rhythm + tmp_light_rhythm3
-            elif rand == 3:
-                self.rhythm = self.rhythm + tmp_light_rhythm4
-            elif rand == 4:
-                self.rhythm = self.rhythm + tmp_light_rhythm5
+        while True:
+            if self.PosiNegaScore >=0:
+                rand = random.randrange(5)
+                if rand == 0:
+                    self.rhythm = self.rhythm + tmp_light_rhythm1
+                elif rand == 1:
+                    self.rhythm = self.rhythm + tmp_light_rhythm2
+                elif rand == 2:
+                    self.rhythm = self.rhythm + tmp_light_rhythm3
+                elif rand == 3:
+                    self.rhythm = self.rhythm + tmp_light_rhythm4
+                elif rand == 4:
+                    self.rhythm = self.rhythm + tmp_light_rhythm5
 
-        elif self.PosiNegaScore < 0:
-            rand = random.randrange(5)
-            if rand == 0:
-                self.rhythm = self.rhythm + tmp_dark_rhythm1
-            elif rand == 1:
-                self.rhythm = self.rhythm + tmp_dark_rhythm2
-            elif rand == 2:
-                self.rhythm = self.rhythm + tmp_dark_rhythm3
-            elif rand == 3:
-                self.rhythm = self.rhythm + tmp_dark_rhythm4
-            elif rand == 4:
-                self.rhythm = self.rhythm + tmp_dark_rhythm5
+            elif self.PosiNegaScore < 0:
+                rand = random.randrange(5)
+                if rand == 0:
+                    self.rhythm = self.rhythm + tmp_dark_rhythm1
+                elif rand == 1:
+                    self.rhythm = self.rhythm + tmp_dark_rhythm2
+                elif rand == 2:
+                    self.rhythm = self.rhythm + tmp_dark_rhythm3
+                elif rand == 3:
+                    self.rhythm = self.rhythm + tmp_dark_rhythm4
+                elif rand == 4:
+                    self.rhythm = self.rhythm + tmp_dark_rhythm5
 
-        #if len(self.rhythm) > len(self.musicalScore)+1:
-        #        break
+            if len(self.rhythm) > len(self.musicalScore)+1:
+                break
         return 
 
     def melodyMake(self):
         for i in range(len(self.musicalScore)):
-            self.melody.append([ self.musicalScore[i], self.rhythm[i]])
+            self.melody.append([self.musicalScore[i], self.rhythm[i]])
         return self.melody
