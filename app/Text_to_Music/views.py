@@ -3,8 +3,7 @@ from .models import ReturnMusicFile
 from rest_framework import viewsets, filters
 from .serializers import MusicSerializer
 
-from .in_class import *
-
+from .api_class import models_bunde
 # Create your views here.
 
 def index(request):
