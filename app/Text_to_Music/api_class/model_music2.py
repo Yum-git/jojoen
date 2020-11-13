@@ -28,43 +28,42 @@ class musicalConverter(object):
     def convertMusic(self):
         if self.PosiNegaScore >= 0:
             rand = random.randrange(10)
-        if rand == 0:
-            self.musicalScore = tmp_light_music1
-        elif rand == 1:
-            self.musicalScore = tmp_light_music2
-        elif rand == 2:
-            self.musicalScore = tmp_light_music3
-        elif rand == 3:
-            self.musicalScore = tmp_light_music4
-        elif rand == 4:
-            self.musicalScore = tmp_light_music5
-        elif rand == 5:
-            self.musicalScore = tmp_light_music6
-        elif rand == 6:
-            self.musicalScore = tmp_light_music7
-        elif rand == 7:
-            self.musicalScore = tmp_light_music8
-        elif rand == 8:
-            self.musicalScore = tmp_light_music9
-        elif rand == 9:
-            self.musicalScore = tmp_light_music10
+            if rand == 0:
+                self.musicalScore = tmp_light_music1
+            elif rand == 1:
+                self.musicalScore = tmp_light_music2
+            elif rand == 2:
+                self.musicalScore = tmp_light_music3
+            elif rand == 3:
+                self.musicalScore = tmp_light_music4
+            elif rand == 4:
+                self.musicalScore = tmp_light_music5
+            elif rand == 5:
+                self.musicalScore = tmp_light_music6
+            elif rand == 6:
+                self.musicalScore = tmp_light_music7
+            elif rand == 7:
+                self.musicalScore = tmp_light_music8
+            elif rand == 8:
+                self.musicalScore = tmp_light_music9
+            elif rand == 9:
+                self.musicalScore = tmp_light_music10
 
         elif self.PosiNegaScore < 0:
-            rand = random.randrange(7) 
-
-        if rand == 0:
-            self.musicalScore = tmp_dark_music1
-        elif rand == 1:
-            self.musicalScore = tmp_dark_music2
-        elif rand == 2:
-            self.musicalScore = tmp_dark_music3
-        elif rand == 3:
-            self.musicalScore = tmp_dark_music4
-        elif rand == 4:
-            self.musicalScore = tmp_dark_music5
-        elif rand == 5:
-            self.musicalScore = tmp_dark_music6
-        elif rand == 6:
-            self.musicalScore = tmp_dark_music7
+            rand = random.randrange(7)
+            if rand == 0:
+                self.musicalScore = tmp_dark_music1
+            elif rand == 1:
+                self.musicalScore = tmp_dark_music2
+            elif rand == 2:
+                self.musicalScore = tmp_dark_music3
+            elif rand == 3:
+                self.musicalScore = tmp_dark_music4
+            elif rand == 4:
+                self.musicalScore = tmp_dark_music5
+            elif rand == 5:
+                self.musicalScore = tmp_dark_music6
+            elif rand == 6:
+                self.musicalScore = tmp_dark_music7
 
         return self.musicalScore

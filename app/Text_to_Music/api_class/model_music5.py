@@ -5,7 +5,7 @@ class PosiNega(object):
     def __init__(self, text):
         self.text = text
         self.PosiNegaScore = 0
-        self.tangoNum
+        self.tangoNum = 0
 
     def posiNegaJud(self):
         analyzer = oseti.Analyzer()

@@ -18,12 +18,12 @@ class StartClass(object):
         # lastText = textConveter.convertText()
 
         # ポジネガ判定　後で実装
-        Judge = PosiNega(self.input_object)
+        Judge = model_music5.PosiNega(self.input_object)
         PosiNegaScore, tangoNum = Judge.posiNegaJud()
 
         # 5. ローマ字を元にドレミに変換する
         musicConveter = model_music2.musicalConverter(PosiNegaScore)
-        musicalScore = musicConveter.convertMusic
+        musicalScore = musicConveter.convertMusic()
         
         # リズムをつくる
         makeRhythm = model_music3.makeRhythm(PosiNegaScore, musicalScore)
@@ -45,12 +45,12 @@ class StartClass(object):
         # 7. base64にしてjson形式に変換
         ## 7_1. base64に変換
         ### audiobinary
-        # model_7_1_class = model_7_1.changebase64(self.audio_path)
-        # self.audio_binary = model_7_1_class.change()
+        model_7_1_class = model_7_1.changebase64(self.audio_path)
+        self.audio_binary = model_7_1_class.change()
 
         ### picturebinary
-        model_7_1_class = model_7_1.changebase64(self.picture_path)
-        # model_7_1_class.__changepath__(self.picture_path)
+        # model_7_1_class = model_7_1.changebase64(self.picture_path)
+        model_7_1_class.__changepath__(self.picture_path)
         self.picture_binary = model_7_1_class.change()
 
         ## 7_2. base64をreturn
