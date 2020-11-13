@@ -22,29 +22,30 @@ class makeRhythm(object):
         
     def rhythmMake(self):
         #while True:
-        if PosiNegaScore >=0:
-            rand = random()
-            if rand == 1:
+        if self.PosiNegaScore >=0:
+            rand = random.randrange(5)
+            if rand == 0:
                 self.rhythm = self.rhythm + tmp_light_rhythm1
-            elif rand == 2:
+            elif rand == 1:
                 self.rhythm = self.rhythm + tmp_light_rhythm2
-            elif rand == 3:
+            elif rand == 2:
                 self.rhythm = self.rhythm + tmp_light_rhythm3
-            elif rand == 4:
+            elif rand == 3:
                 self.rhythm = self.rhythm + tmp_light_rhythm4
-            elif rand == 5:
+            elif rand == 4:
                 self.rhythm = self.rhythm + tmp_light_rhythm5
 
-        elif PosiNegaScore < 0:
-            if rand == 1:
+        elif self.PosiNegaScore < 0:
+            rand = random.randrange(5)
+            if rand == 0:
                 self.rhythm = self.rhythm + tmp_dark_rhythm1
-            elif rand == 2:
+            elif rand == 1:
                 self.rhythm = self.rhythm + tmp_dark_rhythm2
-            elif rand == 3:
+            elif rand == 2:
                 self.rhythm = self.rhythm + tmp_dark_rhythm3
-            elif rand == 4:
+            elif rand == 3:
                 self.rhythm = self.rhythm + tmp_dark_rhythm4
-            elif rand == 5:
+            elif rand == 4:
                 self.rhythm = self.rhythm + tmp_dark_rhythm5
 
         #if len(self.rhythm) > len(self.musicalScore)+1:
