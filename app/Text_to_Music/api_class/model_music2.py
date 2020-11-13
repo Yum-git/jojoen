@@ -23,9 +23,10 @@ class musicalConverter(object):
 
     def __init__(self, PosiNegaScore):
         self.musicalScore = []
+        self.PosiNegaScore = PosiNegaScore
         
     def convertMusic(self):
-        if PosiNegaScore >= 0:
+        if self.PosiNegaScore >= 0:
             rand = random.randrange(10)
         if rand == 0:
             self.musicalScore = tmp_light_music1
@@ -48,8 +49,9 @@ class musicalConverter(object):
         elif rand == 9:
             self.musicalScore = tmp_light_music10
 
-        elif PosiNegaScore < 0:
-        rand = random.randrange(7) 
+        elif self.PosiNegaScore < 0:
+            rand = random.randrange(7) 
+
         if rand == 0:
             self.musicalScore = tmp_dark_music1
         elif rand == 1:
@@ -61,8 +63,8 @@ class musicalConverter(object):
         elif rand == 4:
             self.musicalScore = tmp_dark_music5
         elif rand == 5:
-            musicalScore = tmp_dark_music6
+            self.musicalScore = tmp_dark_music6
         elif rand == 6:
-            musicalScore = tmp_dark_music7
+            self.musicalScore = tmp_dark_music7
 
         return self.musicalScore

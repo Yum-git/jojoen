@@ -12,10 +12,10 @@ class PosiNega(object):
         kekka = analyzer.count_polarity(self.text)
 
         for i in range(len(kekka)):
-        if kekka[i]['positive'] > 0:
-            self.PosiNegaScore += kekka[i]['positive']
-        if kekka[i]['negative'] > 0:
-            self.PosiNegaScore -= kekka[i]['negative']
+            if kekka[i]['positive'] > 0:
+                self.PosiNegaScore += kekka[i]['positive']
+            if kekka[i]['negative'] > 0:
+                self.PosiNegaScore -= kekka[i]['negative']
 
         self.tangoNum = len(kekka)
 
