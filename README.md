@@ -16,6 +16,12 @@ python3 manage.py migrate
 - dockerbuild
 ```
 docker-compose up -d --build
+
+```
+- dockerdown
+```
+docker-compose down
+
 ```
 
 
