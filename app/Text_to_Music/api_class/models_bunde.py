@@ -1,5 +1,5 @@
-import model_3, model_4, model_7_1, model_7_2
-import model_music1, model_music2, model_music3, model_music4
+from . import model_3, model_4, model_7_1, model_7_2
+from . import model_music1, model_music2, model_music3, model_music4
 
 class StartClass(object):
     def __init__(self, input):
@@ -25,11 +25,11 @@ class StartClass(object):
         
         # リズムをつくる
         makeRhythm = model_music3.makeRhythm(PosiNegaScore, musicalScore)
-        makeRhythm.rhythm()
-        melody = makeRhythm.melody()
+        makeRhythm.rhythmMake()
+        melody = makeRhythm.melodyMake()
 
         # 6. ドレミを音声に変換する
-        rec = Recorder(PosiNegaScore, melody)
+        rec = model_music4.Recorder(PosiNegaScore, melody)
         rec.save(self.audio_path)
 
         # 3. 入力した文字列を形態素解析で単語化

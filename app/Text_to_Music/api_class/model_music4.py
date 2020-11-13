@@ -49,9 +49,9 @@ class Recorder:
         self.PosiNegaScore = PosiNegaScore
 
     def generate_tone(self, tones, beat, bpm=120):
-        if PosiNegaScore >=0:
+        if self.PosiNegaScore >=0:
             TONES = light_TONES  
-        elif PosiNegaScore < 0:
+        elif self.PosiNegaScore < 0:
             TONES = dark_TONES  
 
         sec = bpm / 60 * beat
