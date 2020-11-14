@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import ReturnMusicFile
-from rest_framework import viewsets, filters, generics
+from rest_framework import generics, status
 # from .serializers import MusicSerializer
 
 # 実験用import
@@ -29,12 +29,13 @@ class MusicView(generics.RetrieveAPIView):
 
         # 文章→写真・音楽に変換する
         api_start = models_bunde.StartClass(sentence)
-        audio, picture = api_start.main_()
+        audio, picture, status_ = api_start.main_()
 
         # jsonにて返却する
         return Response(
             data={
                 "music": audio,
                 "picture": picture
-            }
+            },
+            status=status_
         )
