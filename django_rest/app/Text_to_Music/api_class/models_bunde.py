@@ -1,7 +1,7 @@
 # from .model_all import *
 from . import model_3, model_4, model_7_1
 from . import model_music1, model_music2, model_music3, model_music4, model_music5
-
+from rest_framework import status
 
 class StartClass(object):
     def __init__(self, input):
@@ -18,7 +18,7 @@ class StartClass(object):
         # textConveter = model_music1.converter(self.input_object)
         # lastText = textConveter.convertText()
 
-        # ポジネガ判定　後で実装
+        # ポジネガ判定
         Judge = model_music5.PosiNega(self.input_object)
         PosiNegaScore, tangoNum = Judge.posiNegaJud()
 
@@ -40,8 +40,11 @@ class StartClass(object):
         word_lists = model_3_class.main_("名詞")
 
         # 4. 分割した単語から図を生成
-        model_4_class = model_4.WordChange(word_lists)
+        model_4_class = model_4.WordChange(word_lists, PosiNegaScore)
         self.picture_path = model_4_class.Picture_create()
+
+        if self.picture_path is False:
+            return 'None', 'None', status.HTTP_204_NO_CONTENT
 
         # 7. base64にしてjson形式に変換
         ## 7_1. base64に変換
@@ -55,4 +58,4 @@ class StartClass(object):
         self.picture_binary = model_7_1_class.change()
 
         ## 7_2. base64をreturn
-        return self.audio_binary, self.picture_binary
+        return self.audio_binary, self.picture_binary, status.HTTP_200_OK
