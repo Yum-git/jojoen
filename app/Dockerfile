@@ -5,6 +5,7 @@ ENV PYTHONBUFFERED 1
 RUN mkdir /var/www
 # workdirの指定
 WORKDIR /var/www
+COPY ./ /var/www/
 
 # 依存Pythonライブラリ一覧コピー
 COPY requirements.txt ./
