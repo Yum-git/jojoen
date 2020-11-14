@@ -16,27 +16,40 @@
 </style>
 <body>
     <div id="app" class="style1">
-       {{ music }}
+        <p>{{ sentence }}</p>
+        <input type="text" v-model="sentence">
+        <button v-on:click="reverseMessage">aaaa</button>
+        <img :src="picture" alt="picture" />
+        <audio controls :src="music" />
     </div>
  
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
  
 <script>
-new Vue({
+var app_data = new Vue({
     el: '#app',
     data: {
         music: null,
-        picture: null
+        picture: null,
+        sentence: null
     },
-    mounted :function(){
-        axios.get('http://localhost:5000/api',
+    methods: {
+        reverseMessage:function(){
+        axios.get('http://192.168.99.100:5000/api',
         {
-            params:{sentence: "fヴァdf。亜sdが；dsがsgl亜dsfglあd；っf；fdファ"}
+            params:{
+				sentence: this.sentence,
+			},
         },
         {withCredentials : true})
-        .then(response => console.log(response))
+        .then(response => {
+          console.log(response.data.audio, response.data.picture)
+          this.music = "data:audio/wav;base64," + response.data.audio
+          this.picture = "data:image/png;base64," + response.data.picture
+        })
         .catch(response => console.log(response))
+    }
     }
 })
 </script> 
