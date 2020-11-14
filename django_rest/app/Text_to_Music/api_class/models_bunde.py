@@ -1,5 +1,7 @@
-from . import model_3, model_4, model_7_1, model_7_2
-from . import model_music1, model_music2, model_music3, model_music4
+# from .model_all import *
+from . import model_3, model_4, model_7_1
+from . import model_music1, model_music2, model_music3, model_music4, model_music5
+
 
 class StartClass(object):
     def __init__(self, input):
@@ -10,19 +12,20 @@ class StartClass(object):
 
         self.audio_binary = None
         self.picture_binary = None
-    
+
     def main_(self):
         # 2. 入力した文字列をローマ字に変換する
-        textConveter = model_music1.converter(self.input_object)
-        lastText = textConveter.convertText()
+        # textConveter = model_music1.converter(self.input_object)
+        # lastText = textConveter.convertText()
 
         # ポジネガ判定　後で実装
-        PosiNegaScore = 3
+        Judge = model_music5.PosiNega(self.input_object)
+        PosiNegaScore, tangoNum = Judge.posiNegaJud()
 
         # 5. ローマ字を元にドレミに変換する
-        musicConveter = model_music2.musicalConverter(lastText)
-        musicalScore = musicConveter.convertMusic
-        
+        musicConveter = model_music2.musicalConverter(PosiNegaScore)
+        musicalScore = musicConveter.convertMusic()
+
         # リズムをつくる
         makeRhythm = model_music3.makeRhythm(PosiNegaScore, musicalScore)
         makeRhythm.rhythmMake()
@@ -34,7 +37,7 @@ class StartClass(object):
 
         # 3. 入力した文字列を形態素解析で単語化
         model_3_class = model_3.ChangeWord(self.input_object)
-        word_lists = model_3_class.main_("名詞") 
+        word_lists = model_3_class.main_("名詞")
 
         # 4. 分割した単語から図を生成
         model_4_class = model_4.WordChange(word_lists)
@@ -47,6 +50,7 @@ class StartClass(object):
         self.audio_binary = model_7_1_class.change()
 
         ### picturebinary
+        # model_7_1_class = model_7_1.changebase64(self.picture_path)
         model_7_1_class.__changepath__(self.picture_path)
         self.picture_binary = model_7_1_class.change()
 

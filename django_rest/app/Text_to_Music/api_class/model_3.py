@@ -1,5 +1,6 @@
 from janome.tokenizer import Tokenizer
 
+
 # 文章を単語に分ける（形態素解析）
 class ChangeWord(object):
     def __init__(self, sentence):
@@ -10,13 +11,13 @@ class ChangeWord(object):
     # 記号かどうかを判別する関数
     def find_kigou(self, string):
         for s in string:
-            if s in ["!","?","[","]","(",")","「","」","！","？","（","）","'",'"',",","."]:
+            if s in ["!", "?", "[", "]", "(", ")", "「", "」", "！", "？", "（", "）", "'", '"', ",", "."]:
                 return False
         return True
 
     # 一文字だけの言葉を削除関数
     def token(self, h):
-        m = [chr(i) for i in range(12354,12354 + 82)]
+        m = [chr(i) for i in range(12354, 12354 + 82)]
         for token in self.tokens:
             word = token.surface
             hinsi = token.part_of_speech.split(',')[0]
@@ -31,12 +32,12 @@ class ChangeWord(object):
                         if len(key) == 2 and (key[0] not in m and key[1] not in m):
                             self.words[key] = 1
                         # 三文字以上はすべて許可
-                        if len(key) >= 3 :
+                        if len(key) >= 3:
                             self.words[key] = 1
                 else:
                     self.words[key] += 1
         return self.words
-    
+
     # 形態素解析
     def Morphological(self):
         sentence_ = self.sentence
