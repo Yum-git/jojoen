@@ -47,18 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework', 
-    'webpack_loader',
 ]
-
-
-# 追加 'jobs' ] # 一番下に追加 
-WEBPACK_LOADER = { 
-    'DEFAULT': 
-    { 'BUNDLE_DIR_NAME': 'dist/', 
-    'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json') 
-    } 
-}
 
 # Setting permission
 REST_FRAMEWORK = {
@@ -131,9 +120,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 

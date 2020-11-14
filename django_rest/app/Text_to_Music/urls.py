@@ -1,8 +1,8 @@
 from django.urls import path
 
-from .views import index
+from .views import index, MusicView
 
 urlpatterns = [
-    path('', index)
+    path('', index),
+    path('api/', MusicView.as_view())
 ]
-
