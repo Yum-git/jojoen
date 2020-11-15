@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>axiosテスト</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.5.55/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.3.10/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+     <v-app>
+        <v-app-bar class="header">
+            Text_to_Music
+        </v-app-bar>
+
+        <v-main>
+        <v-container fluid >
+            <div id="upbound">
+                <v-layout wrap>
+                    <v-row justify="center" align-content="center">
+                        <spinner v-show="isLoading"></spinner>
+                        <img :src="picture" alt="picture"/>
+                    </v-row>
+                </v-layout>
+                <v-layout wrap>
+                    <v-row justify="center" align-content="center" >
+                        <audio controls :src="music"/>
+                    </v-row>
+                </v-layout>
+            </div>
+            <div>
+                <div class="cd-sentence" >
+                    <textarea type="text" v-model="sentence" placeholder="Input Your Sentence"></textarea>
+                </div>
+                <div class="cd-button">
+                    <a href="#" class="btn-gradation"  v-on:click="reverseMessage">PUSH ME</a>
+                </div>
+            </div>
+        </v-container>
+       </v-main>
+       <v-footer class="my-5">
+            © 2020 ウインターハッカソン〜オンラインでLVupする開発合宿vol.4〜(Team jojo苑)
+        </v-footer>
+    </v-app>
+ </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.3.10/dist/vuetify.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-simple-spinner@1.2.8/dist/vue-simple-spinner.min.js"></script>
+<script>
+  const Spinner = window.VueSimpleSpinner;
+  new Vue({
+    el: '#app',
+    vuetify: new Vuetify(),
+    data: {
+        music: "./wav/sample_jojo.wav",
+        picture: "./img/sample_jojo.png",
+        sentence: null,
+        isLoading: false
+    },
+    components:{
+        Spinner
+    },
+    methods: {
+        reverseMessage:function(){
+        this.isLoading = true;
+        axios.get('http://192.168.99.100:5000/api',
+        {
+            params:{
+				sentence: this.sentence,
+			},
+        },
+        {withCredentials : true})
+        .then(response => {
+          if(response.data.picture === "None"){
+              this.picture = "./img/no_data_found.png"
+              this.music = null
+              this.isLoading = false
+          }
+          else{
+              console.log(response.data.audio, response.data.picture)
+              this.music = "data:audio/wav;base64," + response.data.audio
+              this.picture = "data:image/png;base64," + response.data.picture
+              this.isLoading = false
+          }
+        })
+        .catch(response => {
+            this.picture = "./img/no_data_found.png"
+
+        })
+    }
+    }
+})
+</script> 
+</body>
+</html>

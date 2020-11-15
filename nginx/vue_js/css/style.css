@@ -1,0 +1,65 @@
+.cd-sentence {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+.cd-sentence textarea {
+  width: 80%;
+  text-align: center;
+  height: 80px;
+  margin: 20px auto;
+  border: 2px solid rgb(75, 71, 71);  /* 枠線 */
+  border-radius: 0.67em;   /* 角丸 */
+  padding: 0.5em;          /* 内側の余白量 */
+}
+.cd-button {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+.btn-gradation {
+  width: 80%;
+  display: inline-block;
+  text-align: center;
+  background-image: linear-gradient(#EAEAEA 0%, #C6C6C6 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+  color: #A5A5A5;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.btn-gradation:hover {
+  opacity: 0.8;
+}
+
+v-main{
+  background-image: "./img/background.jpg";
+}
+
+.header{
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+img{
+  width : 60vw ;
+}
+
+audio{
+  width : 60vw ;
+}
+
+@media (max-width: 670px){
+  img {
+    width : 80vw ;
+  }
+
+  audio{
+    width : 80vw ;
+  }
+
+}
