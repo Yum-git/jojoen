@@ -35,5 +35,6 @@ sqlparse==0.4.1
 threadpoolctl==2.1.0
 toml==0.10.2
 tqdm==4.51.0
+uwsgi==2.0.19.1
 wordcloud==1.8.1
 wrapt==1.12.1
