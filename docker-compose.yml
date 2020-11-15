@@ -14,12 +14,12 @@ services:
   flask:
     build: ./app
     container_name: flask
-    networks:
-      - jojoen
     tty: true
     ports:
       - "5000:5000"
     command: sh -c "python main.py"
+    networks:
+      - jojoen
 
 networks: 
   jojoen:

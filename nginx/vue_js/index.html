@@ -2,12 +2,19 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>axiosテスト</title>
+  <meta name="description" content="Twitterなどでの文章を入力すると音に変換します！">
+  <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="google-site-verification" content="oDsxJqWS0LCA6RQYCmhLH1SjANEiwgLONYiDsiqedSE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <title>Text_to_Music</title>
   <link rel="stylesheet" href="./css/style.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.5.55/css/materialdesignicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/vuetify@2.3.10/dist/vuetify.min.css" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link rel="apple-touch-icon" size="152x152" href="./img/sample_jojo.png">
+  <link rel="shortcut icon" href="./img/sample_jojo.png" >
 </head>
 <body>
   <div id="app">
@@ -22,7 +29,7 @@
                 <v-layout wrap>
                     <v-row justify="center" align-content="center">
                         <spinner v-show="isLoading"></spinner>
-                        <img :src="picture" alt="picture"/>
+                        <img class="cd-img" :src="picture" alt="picture"/>
                     </v-row>
                 </v-layout>
                 <v-layout wrap>
@@ -70,7 +77,7 @@
     methods: {
         reverseMessage:function(){
         this.isLoading = true;
-        axios.get('http://192.168.99.100:5000/api',
+        axios.get('http://localhost:5000/api',
         {
             params:{
 				sentence: this.sentence,
