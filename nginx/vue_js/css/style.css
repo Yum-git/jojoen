@@ -45,6 +45,11 @@ v-main{
   font-size: 1.5em;
 }
 
+.cd-img {
+  border: 2px rgb(41, 40, 40) solid;
+  margin-bottom: 10px;
+}
+
 img{
   width : 60vw ;
 }
