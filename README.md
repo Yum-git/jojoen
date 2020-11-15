@@ -32,5 +32,5 @@ docker-compose up -d --build
 ```
 
 ## その他
-![発表資料](https://github.com/Yum-git/jojoen/blob/master/teamJOJO%E8%8B%91.pdf)
-![デモ](http://jojoen-alb-876032574.ap-northeast-1.elb.amazonaws.com/)
+[発表資料](https://github.com/Yum-git/jojoen/blob/master/teamJOJO%E8%8B%91.pdf)  
+[デモ](http://jojoen-alb-876032574.ap-northeast-1.elb.amazonaws.com/)
