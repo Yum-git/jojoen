@@ -16,6 +16,11 @@ app = Flask(__name__)
 cors = CORS(app, supports_credentials=True)
 app.config["JSON_AS_ASCII"] = False
 
+@app.route('/')
+@cross_origin(supports_credentials=True) 
+def index():
+	return render_template('index.html')
+
 @app.route('/api', methods=["GET", "POST"])
 @cross_origin(supports_credentials=True) 
 def make_text_to_music():
