@@ -45,14 +45,24 @@ v-main{
   font-size: 1.5em;
 }
 
+.cddiv-img{
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
 .cd-img {
   border: 2px rgb(41, 40, 40) solid;
   margin-bottom: 10px;
+  margin: 0 auto;
+  height: auto;
 }
 
 img{
   height: auto;
   width: 70% ;
+
 }
 
 audio{
@@ -63,6 +73,8 @@ audio{
 
   img{
     width: 80% ;
+    height: auto;
+    display: block;
   }
 
   audio{
