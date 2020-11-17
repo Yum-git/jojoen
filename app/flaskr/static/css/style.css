@@ -51,7 +51,8 @@ v-main{
 }
 
 img{
-  width : 60vw ;
+  height: auto;
+  width: 70% ;
 }
 
 audio{
@@ -59,8 +60,9 @@ audio{
 }
 
 @media (max-width: 670px){
-  img {
-    width : 80vw ;
+
+  img{
+    width: 80% ;
   }
 
   audio{
