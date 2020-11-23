@@ -4,6 +4,8 @@ services:
   nginx:
     build: ./nginx
     container_name: nginx
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
     ports:
       - "80:80"
     environment:
@@ -11,12 +13,12 @@ services:
     networks:
       - jojoen
   
-  uwsgi:
+  app:
     build: ./app
-    container_name: uwsgi
+    container_name: app
     tty: true
     ports:
-      - "3031:3031"
+      - "8000:8000"
     networks:
       - jojoen
 
