@@ -4,4 +4,3 @@ import uvicorn
 #Webアプリの起動
 if __name__ == '__main__':
     uvicorn.run(app)
-    # app.run(debug=True)

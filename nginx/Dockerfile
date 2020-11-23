@@ -1,3 +1,4 @@
 FROM nginx
-COPY nginx.conf /etc/nginx/
-CMD ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
+
+COPY conf.d /etc/nginx/conf.d
+ENTRYPOINT ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
