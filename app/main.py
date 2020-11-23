@@ -1,5 +1,7 @@
 from flaskr.views import app
+import uvicorn
 
 #Webアプリの起動
 if __name__ == '__main__':
-    app.run(debug=True)
+    uvicorn.run(app)
+    # app.run(debug=True)
