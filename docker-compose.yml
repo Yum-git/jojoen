@@ -11,9 +11,9 @@ services:
     networks:
       - jojoen
   
-  uwsgi:
+  uvicorn:
     build: ./app
-    container_name: uwsgi
+    container_name: uvicorn
     tty: true
     ports:
       - "3031:3031"
