@@ -22,7 +22,7 @@ SNS上での会話のきっかけをつくる．
 ## 技術一覧
 開発言語：Python, HTML, CSS, Vue.js  
 webサーバー:nginx  
-フレームワーク：Flask  
+フレームワーク：Flask (追加:FASTAPIに変更 2020/11/23)
 インフラ：AWS, Docker(Dockerfile, docker-compose)  
 ![技術](https://github.com/Yum-git/jojoen/blob/readmd/fig2.png?raw=true) 
 
