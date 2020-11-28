@@ -1,4 +1,4 @@
-from flaskr.views import app
+from fast.views import app
 import uvicorn
 
 #Webアプリの起動
