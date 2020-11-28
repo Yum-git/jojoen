@@ -12,11 +12,11 @@ class WordChange(object):
 
     def Picture_create(self):
         if self.posi_score > 0:
-            font_path = "/var/www/flaskr/models/uzura.ttf"
+            font_path = "/var/www/fast/models/uzura.ttf"
         else:
-            font_path = "/var/www/flaskr/models/Makinas.otf"
+            font_path = "/var/www/fast/models/Makinas.otf"
 
-        # font_path = "/var/www/flaskr/models/ipaexg.ttf"
+        # font_path = "/var/www/fast/models/ipaexg.ttf"
 
         wordcloud = WordCloud(
             # フォント変えてどうにか

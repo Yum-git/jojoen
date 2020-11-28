@@ -9,8 +9,8 @@ import uvicorn
 
 
 app = FastAPI()
-templates = Jinja2Templates(directory="flaskr/templates")
-app.mount("/static", StaticFiles(directory="flaskr/static"), name="static")
+templates = Jinja2Templates(directory="fast/templates")
+app.mount("/static", StaticFiles(directory="fast/static"), name="static")
 
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
@@ -31,4 +31,5 @@ async def make_text_to_music(sentence: str):
     api_start = models_bundle.StartClass(sentence)
     audio, picture, status_ = api_start.main_()
 
-    return {"audio": audio, "picture":picture}
+    return {"audio": audio, "picture": picture}
+
