@@ -1,5 +1,7 @@
 # TEAM JOJOEN
 ![あなたの思いを音楽に変える](https://github.com/Yum-git/jojoen/blob/readmd/fig0.png?raw=true) 
+
+※現在AWSの料金の問題で停止させています、起動のご要望があれば対応します。->[連絡はこちら](https://densuke.work/#Contact)
 ## 概要
 2020年ウインターハッカソン〜オンラインでLVupする開発合宿vol4〜開発物
 
@@ -33,4 +35,6 @@ docker-compose up -d --build
 
 ## その他
 [発表資料](https://github.com/Yum-git/jojoen/blob/master/teamJOJO%E8%8B%91.pdf)  
-[デモ](http://jojoen-alb-876032574.ap-northeast-1.elb.amazonaws.com/)
+
+### デモ
+[![Image from Gyazo](https://i.gyazo.com/c04a4019d3195c032b0e54536ee21326.gif)](https://gyazo.com/c04a4019d3195c032b0e54536ee21326)
