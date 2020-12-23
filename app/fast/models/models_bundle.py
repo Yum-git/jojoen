@@ -1,11 +1,10 @@
-# from .model_all import *
-from . import model_3, model_4, model_7_1
-from . import model_music1, model_music2, model_music3, model_music4, model_music5
+from . import PosiNega, MusicConverter, MakeRhythm, Recorder, ChangeWord, WordChange, ChangeBase64
+
 
 class StartClass(object):
-    def __init__(self, input):
+    def __init__(self, input_sentence: str):
         # 1. 何かしらを入力を受け付ける
-        self.input_object = input
+        self.input_object = input_sentence
         self.audio_path = '../tmp/audio.wav'
         self.picture_path = '../tmp/word.png'
 
@@ -13,48 +12,43 @@ class StartClass(object):
         self.picture_binary = None
 
     def main_(self):
-        # 2. 入力した文字列をローマ字に変換する
-        # textConveter = model_music1.converter(self.input_object)
-        # lastText = textConveter.convertText()
+        # 3. ポジネガ判定
+        judge = PosiNega.PosiNega(self.input_object)
+        posinega_score, tangonum = judge.posi_nega_jud()
 
-        # ポジネガ判定
-        Judge = model_music5.PosiNega(self.input_object)
-        PosiNegaScore, tangoNum = Judge.posiNegaJud()
+        # 4. ローマ字を元にドレミに変換する
+        music_conveter = MusicConverter.musicalConverter(posinega_score)
+        musical_score = music_conveter.convertMusic()
 
-        # 5. ローマ字を元にドレミに変換する
-        musicConveter = model_music2.musicalConverter(PosiNegaScore)
-        musicalScore = musicConveter.convertMusic()
-
-        # リズムをつくる
-        makeRhythm = model_music3.makeRhythm(PosiNegaScore, musicalScore)
-        makeRhythm.rhythmMake()
-        melody = makeRhythm.melodyMake()
+        # 5. リズムをつくる
+        make_rhythm = MakeRhythm.makeRhythm(posinega_score, musical_score)
+        make_rhythm.rhythmMake()
+        melody = make_rhythm.melodyMake()
 
         # 6. ドレミを音声に変換する
-        rec = model_music4.Recorder(PosiNegaScore, melody)
+        rec = Recorder.Recorder(posinega_score, melody)
         rec.save(self.audio_path)
 
-        # 3. 入力した文字列を形態素解析で単語化
-        model_3_class = model_3.ChangeWord(self.input_object)
-        word_lists = model_3_class.main_("名詞")
+        # 7. 入力した文字列を形態素解析で単語化
+        change_word_class = ChangeWord.ChangeWord(self.input_object)
+        word_lists = change_word_class.main_("名詞")
 
-        # 4. 分割した単語から図を生成
-        model_4_class = model_4.WordChange(word_lists, PosiNegaScore)
-        self.picture_path = model_4_class.Picture_create()
+        # 8. 分割した単語から図を生成
+        word_change_class = WordChange.WordChange(word_lists, posinega_score)
+        self.picture_path = word_change_class.Picture_create()
 
         if self.picture_path is False:
             return 'None', 'None', 203
 
-        # 7. base64にしてjson形式に変換
-        ## 7_1. base64に変換
-        ### audiobinary
-        model_7_1_class = model_7_1.changebase64(self.audio_path)
-        self.audio_binary = model_7_1_class.change()
+        # 8. base64にしてjson形式に変換
+        # 8_1. base64に変換
+        # 8_1_1. 音楽
+        change_base64_class = ChangeBase64.changebase64(self.audio_path)
+        self.audio_binary = change_base64_class.change()
 
-        ### picturebinary
-        # model_7_1_class = model_7_1.changebase64(self.picture_path)
-        model_7_1_class.__changepath__(self.picture_path)
-        self.picture_binary = model_7_1_class.change()
+        # 8_1_2. 写真
+        change_base64_class.__changepath__(self.picture_path)
+        self.picture_binary = change_base64_class.change()
 
-        ## 7_2. base64をreturn
+        # 8_2. base64をreturn
         return self.audio_binary, self.picture_binary, 200
