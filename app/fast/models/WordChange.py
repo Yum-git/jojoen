@@ -12,9 +12,9 @@ class WordChange(object):
 
     def Picture_create(self):
         if self.posi_score > 0:
-            font_path = "/var/www/fast/models/uzura.ttf"
+            font_path = "/var/www/fast/static/font/uzura.ttf"
         else:
-            font_path = "/var/www/fast/models/Makinas.otf"
+            font_path = "/var/www/fast/static/font/Makinas.otf"
 
         # font_path = "/var/www/fast/models/ipaexg.ttf"
 
