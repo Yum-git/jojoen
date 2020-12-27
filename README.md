@@ -26,7 +26,7 @@ SNS上での会話のきっかけをつくる．
 webサーバー:nginx  
 フレームワーク：Flask (追加:FASTAPIに変更 2020/11/23)
 インフラ：AWS, Docker(Dockerfile, docker-compose)  
-![技術](https://github.com/Yum-git/jojoen/blob/readmd/fig2.png?raw=true) 
+![技術](https://github.com/Yum-git/jojoen/blob/master/fig2.png) 
 
 ## 起動方法
 ```
